@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Goods extends Model
 {
-   protected $table='goods'; 
+   protected $table='p_goods'; 
    protected $primaryKey = 'goods_id';
    public $timestamps = false;
    //黑名单

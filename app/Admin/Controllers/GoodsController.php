@@ -27,19 +27,18 @@ class GoodsController extends AdminController
         $grid = new Grid(new Goods());
 
         $grid->column('goods_id', __('Goods id'));
+        $grid->column('cat_id', __('Cat id'));
+        $grid->column('goods_sn', __('Goods sn'));
         $grid->column('goods_name', __('Goods name'));
-        $grid->column('goods_price', __('Goods price'));
-        // $grid->column('goods_num', __('Goods num'));
-        // $grid->file('goods_img', __('Goods img'));
-        // $grid->column('goods_imgs', __('Goods imgs'));
-        // $grid->column('goods_desc', __('Goods desc'));
-        $grid->column('goods_score', __('Goods score'));
-        $grid->column('is_nwe', __('Is nwe'));
-        $grid->column('is_hot', __('Is hot'));
-        $grid->column('is_slide', __('Is slide'));
-        $grid->column('is_show', __('Is show'));
-        $grid->column('blog_id', __('Blog id'));
-        $grid->column('cate_id', __('Cate id'));
+        $grid->column('click_count', __('Click count'));
+        $grid->column('goods_number', __('Goods number'));
+        $grid->column('shop_price', __('Shop price'));
+        $grid->column('keywords', __('Keywords'));
+        $grid->column('goods_desc', __('Goods desc'));
+        $grid->column('goods_img', __('图片'))->image();
+        $grid->column('add_time', __('Add time'));
+        $grid->column('is_delete', __('Is delete'));
+        $grid->column('sale_num', __('Sale num'));
 
         return $grid;
     }
@@ -55,19 +54,18 @@ class GoodsController extends AdminController
         $show = new Show(Goods::findOrFail($id));
 
         $show->field('goods_id', __('Goods id'));
+        $show->field('cat_id', __('Cat id'));
+        $show->field('goods_sn', __('Goods sn'));
         $show->field('goods_name', __('Goods name'));
-        $show->field('goods_price', __('Goods price'));
-        $show->field('goods_num', __('Goods num'));
-        $show->field('goods_img', __('Goods img'));
-        $show->field('goods_imgs', __('Goods imgs'));
+        $show->field('click_count', __('Click count'));
+        $show->field('goods_number', __('Goods number'));
+        $show->field('shop_price', __('Shop price'));
+        $show->field('keywords', __('Keywords'));
         $show->field('goods_desc', __('Goods desc'));
-        $show->field('goods_score', __('Goods score'));
-        $show->field('is_nwe', __('Is nwe'));
-        $show->field('is_hot', __('Is hot'));
-        $show->field('is_slide', __('Is slide'));
-        $show->field('is_show', __('Is show'));
-        $show->field('blog_id', __('Blog id'));
-        $show->field('cate_id', __('Cate id'));
+        $show->field('goods_img', __('Goods img'));
+        $show->field('add_time', __('Add time'));
+        $show->field('is_delete', __('Is delete'));
+        $show->field('sale_num', __('Sale num'));
 
         return $show;
     }
@@ -81,20 +79,18 @@ class GoodsController extends AdminController
     {
         $form = new Form(new Goods());
 
-        $form->number('goods_id', __('Goods id'));
+        $form->number('cat_id', __('Cat id'));
+        $form->text('goods_sn', __('Goods sn'));
         $form->text('goods_name', __('Goods name'));
-        $form->text('goods_price', __('Goods price'));
-        $form->text('goods_num', __('Goods num'));
-        $form->text('goods_img', __('Goods img'));
-        $form->text('goods_imgs', __('Goods imgs'));
-        $form->text('goods_desc', __('Goods desc'));
-        $form->text('goods_score', __('Goods score'));
-        $form->text('is_nwe', __('Is nwe'))->default('1');
-        $form->text('is_hot', __('Is hot'))->default('1');
-        $form->text('is_slide', __('Is slide'))->default('1');
-        $form->text('is_show', __('Is show'))->default('1');
-        $form->number('blog_id', __('Blog id'));
-        $form->number('cate_id', __('Cate id'));
+        $form->number('click_count', __('Click count'));
+        $form->number('goods_number', __('Goods number'));
+        $form->decimal('shop_price', __('Shop price'))->default(0.00);
+        $form->text('keywords', __('Keywords'));
+        $form->textarea('goods_desc', __('Goods desc'));
+        $form->image('goods_img', __('Goods img'));
+        $form->number('add_time', __('Add time'));
+        $form->switch('is_delete', __('Is delete'));
+        $form->number('sale_num', __('Sale num'));
 
         return $form;
     }
