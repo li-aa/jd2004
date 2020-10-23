@@ -46,6 +46,7 @@
 					</div>
 				</div>
 				<div class="fr itemInfo-wrap">
+					<input type="hidden" value="{{$data['goods_id']}}" goods_id="{{$data['goods_id']}}" id="goods_id">
 					<div class="sku-name">
 						<h4>{{$data->goods_name}}</h4>
 					</div>
@@ -123,7 +124,7 @@
 							<div class="fl title">
 								<div class="control-group">
 									<div class="controls">
-										<input autocomplete="off" type="text" value="1" minnum="1" class="itxt" />
+										<input autocomplete="off" type="text" value="1" minnum="1" class="itxt" id="goods_num" />
 										<a href="javascript:void(0)" class="increment plus">+</a>
 										<a href="javascript:void(0)" class="increment mins">-</a>
 									</div>
@@ -518,15 +519,18 @@
 	<script src="/static/jquery.min.js"></script>
 	<script>
     $("#btn_add").click(function(){
+    	  var goods_id=$("#goods_id").val();
+    	  var goods_num=parseInt($("#goods_num").val());
         $.ajax({
             url: "/cart/cartlist/goods_id="+{{ $data['goods_id'] }},
+            data:{goods_id:goods_id,goods_num:goods_num},
             type: "post",
             dataType: "json",
             success: function(d){
                 // console.log(d)
                 if(d.errno==0){
                 	alert(d.msg)
-                	location.href ="/cart/show/"+{{ $data['goods_id'] }}
+                	location.href ="/cart/show"
                 }
             }
         })

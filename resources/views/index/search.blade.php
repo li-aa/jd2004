@@ -211,7 +211,7 @@
 						</ul>
 					</div>
 				</div>
-								<div class="goods-list">
+				<div class="goods-list">
 					
 					<ul class="yui3-g">
 						@foreach($data as $k=>$v)

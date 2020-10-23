@@ -7,11 +7,10 @@
 	<title>品优购，优质！优质！</title>
 	
 
-    <link rel="stylesheet" type="text/css" href="/static/css/pages-seckill-item.css" />
 
     <link rel="stylesheet" type="text/css" href="/static/css/pages-zoom.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/pages-seckill-item.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/pages-cart.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/static/css/pages-cart.css" /> -->
 
 	<link rel="icon" href="/static/img/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="/static/css/pages-list.css" />
@@ -144,24 +143,7 @@
 @yield('contents')
 
 
-<div class="brand">
-		<div class="py-container">
-			<ul class="Brand-list blockgary">
-				<li class="Brand-item">
-					<img src="/static/img/brand_21.png" />
-				</li>
-				<li class="Brand-item"><img src="/static/img/brand_03.png" /></li>
-				<li class="Brand-item"><img src="/static/img/brand_05.png" /></li>
-				<li class="Brand-item"><img src="/static/img/brand_07.png" /></li>
-				<li class="Brand-item"><img src="/static/img/brand_09.png" /></li>
-				<li class="Brand-item"><img src="/static/img/brand_11.png" /></li>
-				<li class="Brand-item"><img src="/static/img/brand_13.png" /></li>
-				<li class="Brand-item"><img src="/static/img/brand_15.png" /></li>
-				<li class="Brand-item"><img src="/static/img/brand_17.png" /></li>
-				<li class="Brand-item"><img src="/static/img/brand_19.png" /></li>
-			</ul>
-		</div>
-	</div>
+
 	<!-- 底部栏位 -->
 	<!--页面底部-->
 <div class="clearfix footer">

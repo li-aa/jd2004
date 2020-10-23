@@ -1,8 +1,7 @@
-@extends('layouts.jd')
-      @section('title','详情页')
+@extends('layouts.car')
+      @section('titles','购物车列表')
 
-      @section('contents')
-	<div class="cart py-container">
+      @section('contentc')
 
 		<!--All goods-->
 		<div class="allgoods">
@@ -22,34 +21,36 @@
 						<span class="shopname self">传智自营</span>
 					</div>
 					<div class="cart-body">
+						@foreach($data as $k => $v)
 						<div class="cart-list">
 							<ul class="goods-list yui3-g">
+								
 								<li class="yui3-u-1-24">
 									<input type="checkbox" name="" id="" value="" />
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="/static/img/goods.png" /></div>
-										<div class="item-msg">
-											Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存
-											尺寸：13.3英寸
+										<div class="item-img"><img src="{{env('UPLOAD_URL')}}{{$v->goods_img}}" /></div>
+										<div class="item-msg">{{$v->goods_name}}
 										</div>
 									</div>
 								</li>
 								
-								<li class="yui3-u-1-8"><span class="price">8848.00</span></li>
+								<li class="yui3-u-1-8"><span class="price">{{$v->shop_price}}</span></li>
 								<li class="yui3-u-1-8">
 									<a href="javascript:void(0)" class="increment mins">-</a>
 									<input autocomplete="off" type="text" value="1" minnum="1" class="itxt" />
 									<a href="javascript:void(0)" class="increment plus">+</a>
 								</li>
-								<li class="yui3-u-1-8"><span class="sum">8848.00</span></li>
+								<li class="yui3-u-1-8"><span class="sum">{{$v->shop_price}}</span></li>
 								<li class="yui3-u-1-8">
-									<a href="#none">删除</a><br />
+									<a href="{{url('/cart/delete')}}">删除</a><br />
 									<a href="#none">移到我的关注</a>
 								</li>
+								
 							</ul>
 						</div>
+						@endforeach
 					</div>
 				</div>
 				<div class="cart-item-list">
@@ -130,7 +131,7 @@
 						<span><em>已节省：</em><i>-¥20.00</i></span>
 					</div>
 					<div class="sumbtn">
-						<a class="sum-btn" href="getOrderInfo.html" target="_blank">结算</a>
+						<a class="sum-btn" href="{{url('/cart/getOrderInfo/')}}">结算</a>
 					</div>
 				</div>
 			</div>
@@ -285,5 +286,4 @@
 			</div>
 		</div>
 	</div>
-	<!-- 底部栏位 -->
-@endsection
+	@endsection

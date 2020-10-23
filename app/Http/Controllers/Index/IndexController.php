@@ -71,8 +71,7 @@ class IndexController extends Controller
 
         $user_name = $request->input('reg_name');
         $user_pass = $request->input('password');
-         $date['login_time'] = time();
-        $date["ip"] = ip2long($_SERVER['DB_HOST']);
+         $ip = $request->getClientIp();
         // dd($date["ip"]);exit;
         $key = 'login:count:'.$user_name;
         //检测用户是否已被锁定
@@ -108,11 +107,11 @@ class IndexController extends Controller
             }
 
        $res = DB::table('reglist')->first();
-              $user_name = DB::table('reglist')->where("reg_id",$res->reg_id)->update($date);
+              // $user_name = DB::table('reglist')->where("reg_id",$res->reg_id)->update($res);
               if($res){
                 session_start();
-                  setcookie('reg_id',$u->reg_id,time()+3600,'/');
-                  setcookie('reg_name',$u->reg_name,time()+3600,'/');
+                session(['reg_id'=>$u['reg_id'],'user_name'=>$u['user_name'],'tel'=>$u['tel']]);
+                    Redis::lpush($key,time());
                   header('refresh:2;url=/index/index');
                   echo "登录成功";
                 }
