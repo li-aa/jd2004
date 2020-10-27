@@ -34,3 +34,6 @@ Route::get('/order/paysuccess','Order\OrderController@paysuccess');//支付
 Route::get('/order/aliSign','Order\OrderController@aliSign');//支付
 
 Route::get('/github/callback','TextController@githublogin');
+
+Route::get('/prize/add','Prize\PrizeController@add');
+Route::get('/prize/start','Prize\PrizeController@start');

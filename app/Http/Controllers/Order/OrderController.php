@@ -59,7 +59,7 @@ class OrderController extends Controller
     }
         public function aliNotify(Request $request){
             $oid = $request->get('order_id');
-            // echo ($oid);exit;
+            
     }   
 
     public function paysuccess(){
